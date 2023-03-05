@@ -1,0 +1,23 @@
+
+syntax = "proto3";
+
+option csharp_namespace = "PhProducerGRPC";
+
+package phMeasurement;
+
+// The greeting service definition.
+service PhMeasurementService{
+  // Sends a greeting
+  rpc PhMeasurement (PhMessage) returns (PhMessageResponse);
+}
+
+message PhMessage {
+	float phValue = 1;
+    int32 SystemID = 2;
+}
+
+message PhMessageResponse {
+  bool ok = 1;
+  float phValueGot = 2;
+}
+
